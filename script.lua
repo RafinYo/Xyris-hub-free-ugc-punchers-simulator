@@ -14,7 +14,7 @@ CreditsTab:CreateParagraph({
     Content = "Click the button below to copy our Discord invite link."
 })
 
-CreditsTab:CreateToggle({
+CreditsTab:CreateButton({
     Name = "Copy Discord Invite Link",
     Callback = function()
         setclipboard("https://discord.gg/3WtS2F7CaX")
@@ -22,7 +22,6 @@ CreditsTab:CreateToggle({
     end
 })
 
--- Farm Tab
 local FarmTab = Window:CreateTab("Farm")
 FarmTab:CreateToggle({
     Name = "Auto Punch",
