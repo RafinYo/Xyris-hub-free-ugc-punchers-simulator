@@ -97,26 +97,3 @@ UpgradeTab:CreateToggle({
         end
     end
 })
-
-local AutoHatchTab = Window:CreateTab("Auto Hatch")
-
-local selectedEgg = nil
-AutoHatchTab:CreateDropdown({
-    Name = "Select Egg",
-    Options = { "Halloween_Egg", "Jungle_Egg", "Desert_Egg" },
-    Callback = function(egg)
-        selectedEgg = egg
-    end
-})
-
-AutoHatchTab:CreateButton({
-    Name = "Hatch Selected Egg",
-    Callback = function()
-        if selectedEgg then
-            local args = { "S_Egg_Open_1", { selectedEgg } }
-            game:GetService("ReplicatedStorage").Common.Library.Network.RemoteFunction:InvokeServer(unpack(args))
-        else
-            Rayfield:Notify("No Egg Selected", "Please select an egg before hatching.")
-        end
-    end
-})
